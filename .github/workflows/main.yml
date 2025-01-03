@@ -1,4 +1,4 @@
-name: Build and Deploy Angular App
+name: Build and Deploy Astro App
 
 on:
   push:
@@ -28,9 +28,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Build the Angular application
-      - name: Build Angular app
-        run: npm run build --prod
+      # Build the Astro application
+      - name: Build Astro app
+        run: npm run build
 
       # Deploy to FTP
       - name: Deploy to FTP
@@ -39,6 +39,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: dist/ # Local directory where Angular outputs the build
+          local-dir: dist/ # Local directory where Astro outputs the build
           server-dir: /home/fllatech1/ # Root folder on the server
           protocol: ftp
